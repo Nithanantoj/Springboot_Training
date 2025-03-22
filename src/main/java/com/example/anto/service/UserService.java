@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import com.example.anto.entity.User;
 import java.util.List;
 //import java.util.ArrayList;
-import java.util.Optional;
+
 
 
 @Service
 public class UserService {
     @Autowired
-    UserRepository userRepo;
+    private UserRepository userRepo;
 
 //    private  List<User> users= new ArrayList<>();
 
@@ -50,5 +50,7 @@ public class UserService {
             return "User not found";
         }
     }
+
+
 
 }

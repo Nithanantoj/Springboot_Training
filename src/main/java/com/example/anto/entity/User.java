@@ -13,6 +13,7 @@ public class User {
     private int rollno;
     private String name;
     private String email;
+    private String password;
 
     public User(){}
 
@@ -20,6 +21,8 @@ public class User {
         this.name = name;
         this.rollno = rollno;
         this.email = email;
+        this.password = password;
+
     }
 
     public String getName() {
@@ -32,6 +35,10 @@ public class User {
 
     public int getRollno() {
         return rollno;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
 }
