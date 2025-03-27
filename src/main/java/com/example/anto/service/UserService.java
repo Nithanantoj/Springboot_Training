@@ -43,7 +43,7 @@ public class UserService {
 
 
     public String deleteUser(long rollno) {
-        if (userRepo.existsById( rollno)) {
+        if (userRepo.existsById(rollno)) {
             userRepo.deleteById(rollno);
             return "User deleted successfully";
         } else {

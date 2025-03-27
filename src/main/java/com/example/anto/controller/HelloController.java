@@ -4,6 +4,8 @@ import com.example.anto.entity.User;
 
 import com.example.anto.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,9 +37,15 @@ public class HelloController {
     }
 
     @DeleteMapping("/delete/{rollno}")
-    public String deleteUser(@PathVariable long rollno) {
-        return user.deleteUser(rollno);
+    public ResponseEntity<String> deleteUser(@PathVariable long rollno) {
+        String result = user.deleteUser(rollno);
+        if (result.equals("User deleted successfully")) {
+            return ResponseEntity.ok(result); // 200 OK
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result); // 404 Not Found
+        }
     }
+
 
     @GetMapping("/name/{name}")
     public User getUserByName(@PathVariable String name) {
