@@ -51,7 +51,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http.csrf(customizer -> customizer.disable()).
-                authorizeHttpRequests(request -> request
+                 cors(customizer -> customizer.configurationSource(corsConfigurationSource())) // ✅ Add this line
+                .authorizeHttpRequests(request -> request
                         .requestMatchers("/test").authenticated()
                         .anyRequest().permitAll()).
                 httpBasic(Customizer.withDefaults()).
