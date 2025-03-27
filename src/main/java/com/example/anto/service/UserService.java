@@ -52,5 +52,12 @@ public class UserService {
     }
 
 
+    public User findByName(String name) {
+        return userRepo.findByName(name);
+    }
 
+    public User findByNameAndEmail(String name, String email) {
+        User byNameAndEmail = userRepo.findByNameAndEmail(name, email);
+        return byNameAndEmail;
+    }
 }

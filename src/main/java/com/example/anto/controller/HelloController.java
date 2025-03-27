@@ -39,5 +39,16 @@ public class HelloController {
         return user.deleteUser(rollno);
     }
 
+    @GetMapping("/name/{name}")
+    public User getUserByName(@PathVariable String name) {
+        return user.findByName(name);
+    }
+
+    @GetMapping("/nameandemail")
+    public User getUserByNameAndEmail(@RequestParam String name, @RequestParam String email) {
+        return user.findByNameAndEmail(name,email);
+    }
+
+
 
 }
